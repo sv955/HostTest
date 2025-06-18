@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BuzzBuddies Dashboard</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="dashboardFrame" src="https://dashboard.buzzbuddies.lol/" allowfullscreen></iframe>
+
+  <script>
+    const iframe = document.getElementById('dashboardFrame');
+    
+    // If iframe fails to load within 5 seconds, fallback
+    let fallbackTimeout = setTimeout(() => {
+      iframe.src = "https://www.google.com";
+    }, 5000);
+
+    // Clear fallback if iframe loads successfully
+    iframe.onload = () => {
+      clearTimeout(fallbackTimeout);
+    };
+  </script>
+</body>
+</html>
